@@ -6,5 +6,12 @@ module.exports = {
         Author.create(req.body)
             .then(data => res.json(data))
             .catch(err => res.json(err))
+    },
+    // Read
+    // All authors
+    allAuthors: (req, res) => {
+        Author.find({})
+            .then(data => res.json(data))
+            .catch(err => res.json(err))
     }
 }
