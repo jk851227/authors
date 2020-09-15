@@ -5,4 +5,5 @@ module.exports = app => {
     app.post("/api/authors/new", controller.createAuthor);
     // Read Route
     app.get("/api/authors", controller.allAuthors);
+    app.get("/api/authors/:id", controller.oneAuthor);
 }
