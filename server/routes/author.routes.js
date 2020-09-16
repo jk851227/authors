@@ -6,4 +6,6 @@ module.exports = app => {
     // Read Route
     app.get("/api/authors", controller.allAuthors);
     app.get("/api/authors/:id", controller.oneAuthor);
+    // Update Route
+    app.patch("/api/authors/:id", controller.updateAuthor);
 }
