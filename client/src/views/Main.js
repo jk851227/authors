@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from '@reach/router';
+import { Link, navigate } from '@reach/router';
+import DeleteBtn from '../components/DeleteBtn';
 
 const Main = () => {
   const [authors, setAuthors] = useState([]);
@@ -14,7 +15,7 @@ const Main = () => {
         setLoaded(true);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [authors]);
 
   return (
     <div>
@@ -36,7 +37,8 @@ const Main = () => {
                     <Link to={`/${author._id}/edit`}>
                       <button>Edit</button>
                     </Link>{' '}
-                    | Delete
+                    | 
+                    <DeleteBtn id={author._id} success={() => navigate("/")}/>
                   </td>
                 </tr>
               );
