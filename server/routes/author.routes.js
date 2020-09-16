@@ -8,4 +8,6 @@ module.exports = app => {
     app.get("/api/authors/:id", controller.oneAuthor);
     // Update Route
     app.patch("/api/authors/:id", controller.updateAuthor);
+    // Delete Route
+    app.delete("/api/authors/:id", controller.deleteAuthor);
 }
