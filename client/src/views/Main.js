@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from '@reach/router';
 
 const Main = () => {
   const [authors, setAuthors] = useState([]);
@@ -17,7 +18,7 @@ const Main = () => {
 
   return (
     <div>
-      <h1>Favorite Authors</h1>
+      <Link to='/new'>Add an author</Link>
       {loaded ? (
         <table>
           <thead>
@@ -31,7 +32,12 @@ const Main = () => {
               return (
                 <tr key={idx}>
                   <td>{author.name}</td>
-                  <td>Edit | Delete</td>
+                  <td>
+                    <Link to={`/${author._id}/edit`}>
+                      <button>Edit</button>
+                    </Link>{' '}
+                    | Delete
+                  </td>
                 </tr>
               );
             })}
